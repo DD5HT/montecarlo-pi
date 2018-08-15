@@ -25,7 +25,7 @@ fn in_circle(j: RFloat) -> u64 {
 
 fn calc_pi(samples: u64) -> f64 {
     let threads: u64 = num_cpus::get_physical() as u64;
-    let mut children = vec![];
+    let mut children  = vec![];
     let iterations: u64 = samples / threads;
     println!("Using {} physical cores:", threads);
 
