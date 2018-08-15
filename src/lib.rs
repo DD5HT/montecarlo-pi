@@ -1,9 +1,9 @@
 // montecarlo approximation of pi in rust
-extern crate rand;
 extern crate num_cpus;
+extern crate rand;
 
+use rand::{thread_rng, Rng};
 use std::thread;
-use rand::{Rng, thread_rng};
 
 struct RFloat {
     x: f64,
@@ -12,26 +12,30 @@ struct RFloat {
 
 #[inline]
 fn two_r() -> RFloat {
-    let mut rng  = thread_rng();
+    let mut rng = thread_rng();
     let x = rng.gen::<f64>();
     let y = rng.gen::<f64>();
-    RFloat{x: x, y: y}
+    RFloat {x, y}
 }
 
-fn in_circle(j: RFloat) -> u64 {
-    let f = (j.x*j.x + j.y*j.y).sqrt();
-    if f <= 1.0 {1} else{0}
+fn in_circle(j: &RFloat) -> u64 {
+    let f = (j.x * j.x + j.y * j.y).sqrt();
+    if f <= 1.0 {
+        1
+    } else {
+        0
+    }
 }
 
 pub fn calc_pi(samples: u64) -> f64 {
     let threads: u64 = num_cpus::get_physical() as u64;
-    let mut children  = vec![];
+    let mut children = vec![];
     let iterations: u64 = samples / threads;
     println!("Using {} physical cores:", threads);
 
     for _ in 0..threads {
         children.push(thread::spawn(move || -> u64 {
-            (0..iterations).fold(0,|hits, _| hits + in_circle(two_r()))   
+            (0..iterations).fold(0, |hits, _| hits + in_circle(&two_r()))
         }));
     }
 
