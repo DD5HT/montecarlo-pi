@@ -7,7 +7,7 @@ use structopt::StructOpt;
 use montepi::calc_pi;
 
 #[derive(StructOpt, Debug)]
-#[structopt(name = "pi")]
+#[structopt(name = "pi", about = "Calculates π using a Monte Carlo algorithm.")]
 struct Opt {
 
     #[structopt(short = "s", long = "samples")]
