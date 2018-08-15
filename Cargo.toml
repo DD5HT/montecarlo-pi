@@ -1,0 +1,11 @@
+[package]
+name = "montepi"
+version = "0.1.0"
+authors = ["DD5HT <hendrik@dd5ht.de>"]
+
+[dependencies]
+rand = "*"
+num_cpus = "*"
+
+[profile.release]
+lto = false
