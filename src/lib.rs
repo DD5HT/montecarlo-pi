@@ -6,16 +6,16 @@ use rand::{thread_rng, Rng};
 use std::thread;
 
 struct RFloat {
-    x: f64,
-    y: f64,
+    x: f32,
+    y: f32,
 }
 
 #[inline]
 fn two_r() -> RFloat {
     let mut rng = thread_rng();
-    let x = rng.gen::<f64>();
-    let y = rng.gen::<f64>();
-    RFloat {x, y}
+    let x = rng.gen::<f32>();
+    let y = rng.gen::<f32>();
+    RFloat { x, y }
 }
 
 fn in_circle(j: &RFloat) -> u64 {
