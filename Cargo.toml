@@ -6,6 +6,7 @@ authors = ["DD5HT <hendrik@dd5ht.de>"]
 [dependencies]
 rand = "*"
 num_cpus = "*"
+structopt = "*"
 
 [profile.release]
 lto = false
