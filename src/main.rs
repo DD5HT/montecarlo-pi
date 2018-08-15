@@ -20,17 +20,14 @@ pub fn two_r() -> RFloat {
 
 fn in_circle(j: RFloat) -> u64 {
     let f = (j.x*j.x + j.y*j.y).sqrt();
-    if f <= 1.0 {
-        return 1;
-    }
-    0
+    if f <= 1.0 {1} else{0}
 }
 
 fn calc_pi(samples: u64) -> f64 {
     let threads: u64 = num_cpus::get_physical() as u64;
-    let mut children  = vec![];
+    let mut children = vec![];
     let iterations: u64 = samples / threads;
-    println!("Using {} physical cores", threads);
+    println!("Using {} physical cores:", threads);
 
     for _ in 0..threads {
         children.push(thread::spawn(move || -> u64 {
@@ -51,6 +48,6 @@ fn calc_pi(samples: u64) -> f64 {
 }
 
 fn main(){
-    let samples = 1_000_000_000;
+    let samples = 1_000_000;
     println!("π ~ {}",calc_pi(samples));
 }
