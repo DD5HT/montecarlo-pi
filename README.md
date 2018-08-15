@@ -1,6 +1,6 @@
 # A multicore implementation of a Monte Carlo algorithm to calculate π
 
-Calculates Pi with a [Monte Carlo algorithm](https://en.wikipedia.org/wiki/Monte_Carlo_algorithm) and scales adaptivly to the available physical cpu cores.
+Calculates Pi with a distributed [Monte Carlo algorithm](https://en.wikipedia.org/wiki/Monte_Carlo_algorithm) and scales adaptivly to the available physical cpu cores.
 
 ## Example
 
