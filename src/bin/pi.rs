@@ -19,7 +19,7 @@ fn main(){
     if let Some(samples) = opt.samples {
         println!("π ~ {}",calc_pi(samples));
     }else {
-        let default = 10000;
+        let default = 1_000_000;
         println!("Using default value of {}:", default);
         println!("π ~ {}",calc_pi(default));
     }
