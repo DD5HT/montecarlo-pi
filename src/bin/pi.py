@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 import random
 import math
@@ -8,4 +8,4 @@ for count in range(0, 100_000_000):
     d = math.hypot(random.random(), random.random())
     if d < 1: count_inside += 1
 count += 1
-print (4.0 * count_inside / count)
+print ("π ~ {}".format(4.0 * count_inside / count))

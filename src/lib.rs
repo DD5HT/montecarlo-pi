@@ -47,5 +47,5 @@ pub fn calc_pi(samples: u64) -> f64 {
     }
     let final_result = intermediate_sums.iter().sum::<u64>();
     //return pi
-    4.0 * final_result as f64 / (iterations * threads) as f64
+    4.0 * final_result as f64 / samples as f64
 }
