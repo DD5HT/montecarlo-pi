@@ -11,7 +11,7 @@ int is_in_circle() {
 
     x = (double)rand() / RAND_MAX;
     y = (double)rand() / RAND_MAX;
-    z = hypot(x,y);
+    z = sqrt(x*x + y*y);
     
     if (z<=1){
         return 1;

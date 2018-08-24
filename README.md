@@ -7,14 +7,13 @@ There are also multiple Implementations in other languages to compare the speed 
 ## Example
 
 `time cargo run --release -- -s 50000000000`
-```
-Using 4 physical cores:
-π ~ 3.14158117856
 
-real    2m14.549s
-user    8m38.850s
-sys     0m0.524s
-```
+    Using 4 physical cores:
+    π ~ 3.14158117856
+
+    real    2m14.549s
+    user    8m38.850s
+    sys     0m0.524s
 
 ## Single Benchmarks
 
@@ -74,16 +73,16 @@ Single Benchmarks for 100.000.000 iterations.
     [hendrik@odin bin]$ time ./cpi
     Pi ~ 3.14163
 
-    real    0m2.910s
-    user    0m2.901s
-    sys     0m0.001s
+    real    0m1.593s
+    user    0m1.576s
+    sys     0m0.003s
 
 ## Observation
 
     Using a parallel approach creates zero overhead in Rust! (compare user)
 
     unoptimized Rust < Python < Ruby < C < optimized single core Rust < optimized mulitcore Rust
-    Speedup: 1.000 < 1.118 < 3.116 < 18.436 < 64.123 < 64.742
+    Speedup: 1.000 < 1.118 < 3.116 < 30.043 < 64.123 < 64.742
 
 ### Disclaimer
 
