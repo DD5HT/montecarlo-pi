@@ -77,12 +77,21 @@ Single Benchmarks for 100.000.000 iterations.
     user    0m1.576s
     sys     0m0.003s
 
+### go build pi.go
+
+    [hendrik@odin bin]$ time ./pi
+    Pi: +3.141755e+000
+
+    real    0m2.553s
+    user    0m2.545s
+    sys     0m0.004s
+
 ## Observation
 
     Using a parallel approach creates zero overhead in Rust! (compare user)
 
     unoptimized Rust < Python < Ruby < C < optimized single core Rust < optimized mulitcore Rust
-    Speedup: 1.000 < 1.118 < 3.116 < 30.043 < 64.123 < 64.742
+    Speedup: 1.000x < 1.118x < 3.116x < 21.081x < 30.043x < 64.123x < 64.742x
 
 ### Disclaimer
 
