@@ -36,16 +36,16 @@ Single Benchmarks for 100.000.000 iterations.
     user    0m17.153s
     sys     0m0.024s
 
-### rustc 1.30.0-nightly (33b923fd4 2018-08-18) Multi Core
+### rustc 1.30.0-nightly (33b923fd4 2018-08-18) Multi-core
 
-#### rustc with release flag
+#### rustc with release flag + lto
 
     [hendrik@odin bin]$ time cargo run --release
-    π ~ 3.14143124
+    π ~ 3.14144664
 
-    real    0m0.332s
-    user    0m1.099s
-    sys     0m0.013s
+    real    0m0.425s
+    user    0m0.829s
+    sys     0m0.041s
 
 #### rustc without release flag
 
@@ -56,10 +56,32 @@ Single Benchmarks for 100.000.000 iterations.
     user    0m53.651s
     sys     0m0.057s
 
-### Observation
+### rustc 1.30.0-nightly (33b923fd4 2018-08-18) Single-core
 
-    unoptimized Rust < Python < Ruby < optimized Rust
-    Speedup: 1.000 < 1.118 < 3.116 < 48.818
+#### rustc with release flag + lto
+
+    [hendrik@odin bin]$ time cargo run --release
+    π ~ 3.14177348
+
+    real    0m0.858s
+    user    0m0.837s
+    sys     0m0.009s
+
+### gcc -o cpi pi.c -lm -Ofast
+
+    [hendrik@odin bin]$ time ./cpi
+    Pi ~ 3.14163
+
+    real    0m2.910s
+    user    0m2.901s
+    sys     0m0.001s
+
+## Observation
+
+    Using a parallel approach creates zero overhead in Rust! (compare user)
+
+    unoptimized Rust < Python < Ruby < C < optimized single core Rust < optimized mulitcore Rust
+    Speedup: 1.000 < 1.118 < 3.116 < 18.436 < 64.123 < 64.742
 
 ### Disclaimer
 

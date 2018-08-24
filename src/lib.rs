@@ -27,7 +27,7 @@ fn in_circle(j: &RFloat) -> u64 {
     }
 }
 
-pub fn calc_pi(samples: u64) -> f64 {
+pub fn multi_calc_pi(samples: u64) -> f64 {
     let threads: u64 = num_cpus::get_physical() as u64;
     println!("Using {} physical cores:", threads);
 
@@ -48,4 +48,9 @@ pub fn calc_pi(samples: u64) -> f64 {
     let final_result = intermediate_sums.iter().sum::<u64>();
     //return pi
     4.0 * final_result as f64 / samples as f64
+}
+
+pub fn single_calc_pi(samples: u64) -> f64 {
+    let result = (0..samples).fold(0, |hits, _| hits + in_circle(&two_r()));
+    4.0 * result as f64 / samples as f64
 }

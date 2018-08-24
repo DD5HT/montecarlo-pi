@@ -9,4 +9,4 @@ num_cpus = "*"
 structopt = "*"
 
 [profile.release]
-lto = false
+lto = true
