@@ -2,6 +2,8 @@
 
 Calculates Pi with a distributed [Monte Carlo algorithm](https://en.wikipedia.org/wiki/Monte_Carlo_algorithm) and scales adaptivly to the available physical cpu cores.
 
+There are also multiple Implementations in other languages to compare the speed with Rust.
+
 ## Example
 
 `time cargo run --release -- -s 50000000000`
