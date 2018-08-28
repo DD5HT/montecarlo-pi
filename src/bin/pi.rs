@@ -15,18 +15,21 @@ struct Opt {
     samples: Option<u64>,
     #[structopt(short = "m", long = "multi")]
     multicore: bool,
+    #[structopt(short = "t", long = "threads")]
+    threads: Option<u64>
 }
 
 fn main() {
     let opt = Opt::from_args();
     let default = 100_000_000;
-    let output;
-    if opt.multicore {
+    let output : f64;
+    let threads = opt.threads;
+    if opt.multicore || threads.is_some(){
         println!("Running Multicore variant!");
         if let Some(samples) = opt.samples {
-            output = multi_calc_pi(samples);
+            output = multi_calc_pi(samples, threads);
         } else {
-            output = multi_calc_pi(default);
+            output = multi_calc_pi(default, threads);
         }
     } else {
         println!("Running Singlecore variant!");

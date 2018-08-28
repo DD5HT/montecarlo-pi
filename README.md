@@ -86,6 +86,34 @@ Single Benchmarks for 100.000.000 iterations.
     user    0m2.545s
     sys     0m0.004s
 
+
+## perf stat for Rust
+
+    Performance counter stats for './pi':
+           875,521733      task-clock:u (msec)       #    1,000 CPUs utilized
+                    0      context-switches:u        #    0,000 K/sec
+                    0      cpu-migrations:u          #    0,000 K/sec
+                  132      page-faults:u             #    0,151 K/sec
+        2.701.546.266      cycles:u                  #    3,086 GHz
+        9.614.782.386      instructions:u            #    3,56  insn per cycle
+        1.081.446.108      branches:u                # 1235,202 M/sec
+              399.899      branch-misses:u           #    0,04% of all branches
+        0,875843969 seconds time elapsed
+        0,874664000 seconds user
+        0,000000000 seconds sys
+
+            Performance counter stats for './pi -m':
+                   876,914303      task-clock:u (msec)       #    1,928 CPUs utilized
+                            0      context-switches:u        #    0,000 K/sec
+                            0      cpu-migrations:u          #    0,000 K/sec
+                          177      page-faults:u             #    0,202 K/sec
+                2. 90.776.793      cycles:u                  #    3,068 GHz
+                9.615.095.565      instructions:u            #    3,57  insn per cycle
+                1.081.503.908      branches:u                # 1233,306 M/sec
+                      404.617      branch-misses:u           #    0,04% of all branches
+                0,454751231 seconds time elapsed
+                0,876609000 seconds user
+                0,000000000 seconds sys
 ## Observation
 
     Using a parallel approach creates zero overhead in Rust! (compare user)

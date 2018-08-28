@@ -27,9 +27,16 @@ fn in_circle(j: &RFloat) -> u64 {
     }
 }
 
-pub fn multi_calc_pi(samples: u64) -> f64 {
-    let threads: u64 = num_cpus::get_physical() as u64;
-    println!("Using {} physical cores:", threads);
+pub fn multi_calc_pi(samples: u64, cores: Option<u64>) -> f64 {
+    let mut threads: u64 = match cores {
+        Some(count) => count,
+        None => num_cpus::get_physical() as u64,
+    };
+    if threads > num_cpus::get() as u64 {
+        threads = num_cpus::get() as u64
+    };
+
+    println!("Using {} threads.", threads);
 
     let mut children = vec![];
     let iterations: u64 = samples / threads;
