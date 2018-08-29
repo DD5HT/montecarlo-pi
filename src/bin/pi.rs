@@ -11,10 +11,13 @@ use montepi::*;
     about = "Calculates π using a Monte Carlo algorithm."
 )]
 struct Opt {
+    ///specify the amount of samples
     #[structopt(short = "s", long = "samples")]
     samples: Option<u64>,
+    ///use -m for multicore variant using the amount of physical cores
     #[structopt(short = "m", long = "multi")]
     multicore: bool,
+    ///specify the amount of threads
     #[structopt(short = "t", long = "threads")]
     threads: Option<u64>
 }
