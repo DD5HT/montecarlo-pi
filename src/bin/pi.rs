@@ -1,5 +1,5 @@
 extern crate montepi;
-extern crate structopt;
+#[macro_use]extern crate structopt;
 
 use structopt::StructOpt;
 
