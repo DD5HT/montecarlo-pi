@@ -6,15 +6,15 @@ use rand::{thread_rng, Rng};
 use std::thread;
 
 struct RFloat {
-    x: f32,
-    y: f32,
+    x: f64,
+    y: f64,
 }
 
 #[inline]
 fn two_r() -> RFloat {
     let mut rng = thread_rng();
-    let x = rng.gen::<f32>();
-    let y = rng.gen::<f32>();
+    let x = rng.gen::<f64>();
+    let y = rng.gen::<f64>();
     RFloat { x, y }
 }
 
