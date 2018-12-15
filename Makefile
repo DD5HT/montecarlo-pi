@@ -10,6 +10,9 @@ c-clang:
 bench-rust:
 	time ./target/release/pi 
 
+bench-rust-multi:
+	time ./target/release/pi -m
+
 bench-gcc:
 	time ./target/pi-gcc
 
