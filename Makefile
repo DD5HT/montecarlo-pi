@@ -8,16 +8,16 @@ c-clang:
 	clang -O3 -o target/pi-clang src/bin/pi.c -lm
 
 bench-rust:
-	time ./target/release/pi 
+	hyperfine ./target/release/pi 
 
 bench-rust-multi:
-	time ./target/release/pi -m
+	hyperfine ./target/release/pi -m
 
 bench-gcc:
-	time ./target/pi-gcc
+	hyperfine ./target/pi-gcc
 
 bench-clang:
-	time ./target/pi-clang
+	hyperfine ./target/pi-clang
 
 clean:
 	rm -rf target

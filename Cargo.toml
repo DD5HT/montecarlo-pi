@@ -1,7 +1,7 @@
 [package]
 name = "montepi"
 version = "0.1.0"
-authors = ["DD5HT <hendrik@dd5ht.de>"]
+authors = ["Hendrik Teuber <hendrik@dd5ht.de>"]
 
 [dependencies]
 rand = "*"
