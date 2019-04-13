@@ -6,7 +6,7 @@ There are also multiple Implementations in other languages to compare the speed 
 
 ## Example
 
-`time cargo run --release -- -s 50000000000`
+`time cargo run --release -- -s 50_000_000_000`
 
     Using 4 physical cores:
     π ~ 3.14158117856

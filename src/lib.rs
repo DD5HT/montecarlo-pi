@@ -1,7 +1,4 @@
 /// montecarlo approximation of pi in rust
-extern crate num_cpus;
-extern crate rand;
-
 use rand::{thread_rng, Rng};
 use std::thread;
 

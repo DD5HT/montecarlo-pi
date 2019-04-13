@@ -2,11 +2,10 @@
 name = "montepi"
 version = "0.1.0"
 authors = ["Hendrik Teuber <hendrik@dd5ht.de>"]
-
+edition = "2018"
 [dependencies]
 rand = "*"
 num_cpus = "*"
 structopt = "*"
-
 [profile.release]
 lto = true
