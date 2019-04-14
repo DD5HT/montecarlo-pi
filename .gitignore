@@ -1,2 +1,5 @@
 /target
 **/*.rs.bk
+.ipynb*
+dask-worker-space
+.vscode

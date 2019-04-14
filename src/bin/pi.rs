@@ -1,6 +1,3 @@
-extern crate montepi;
-extern crate structopt;
-
 use structopt::StructOpt;
 
 use montepi::*;
