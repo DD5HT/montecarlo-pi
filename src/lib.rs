@@ -2,25 +2,27 @@
 use rand::{thread_rng, Rng};
 use std::thread;
 
+///Struct filled with two random f64 floats
 struct RFloats {
     x: f64,
     y: f64,
 }
 
-#[inline]
-fn two_r() -> RFloats {
-    let mut rng = thread_rng();
-    let x = rng.gen::<f64>();
-    let y = rng.gen::<f64>();
-    RFloats { x, y }
-}
-
-fn in_circle(j: &RFloats) -> u64 {
-    let f = (j.x * j.x + j.y * j.y).sqrt();
-    if f <= 1.0 {
-        1
-    } else {
-        0
+impl RFloats {
+    #[inline]
+    fn new() -> RFloats {
+        let mut rng = thread_rng();
+        let x = rng.gen::<f64>();
+        let y = rng.gen::<f64>();
+        RFloats { x, y }
+    }
+    fn in_circle(&self) -> u64 {
+        let f = (self.x * self.x + self.y * self.y).sqrt();
+        if f <= 1.0 {
+            1
+        } else {
+            0
+        }
     }
 }
 
@@ -31,7 +33,7 @@ pub fn multi_calc_pi(samples: u64, cores: Option<u64>) -> f64 {
 
     for _ in 0..threads {
         children.push(thread::spawn(move || -> u64 {
-            (0..iterations).fold(0, |hits, _| hits + in_circle(&two_r()))
+            (0..iterations).fold(0, |hits, _| hits + RFloats::new().in_circle())
         }));
     }
     let mut intermediate_sums = vec![];
@@ -47,7 +49,7 @@ pub fn multi_calc_pi(samples: u64, cores: Option<u64>) -> f64 {
 
 ///A single function to calculate
 pub fn single_calc_pi(samples: u64) -> f64 {
-    4.0 * (0..samples).fold(0, |hits, _| hits + in_circle(&two_r())) as f64 / samples as f64
+    4.0 * (0..samples).fold(0, |hits, _| hits + RFloats::new().in_circle()) as f64 / samples as f64
 }
 
 /// Return the possible thread counts, uses number of physical cores as a default.
