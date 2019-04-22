@@ -20,3 +20,7 @@ def pi_calc_numpy(samples=100_000_000):
         if d < 1:
             count_inside += 1
     return 4.0 * count_inside / samples
+
+
+if __name__ == "__main__":
+    pi_calc_base()
